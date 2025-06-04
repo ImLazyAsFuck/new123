@@ -36,7 +36,7 @@ public class CustomerController{
 
     @GetMapping("/add")
     public String add(Model model){
-        model.addAttribute("customer", new CustomerDto());
+        model.addAttribute("customerDto", new CustomerDto());
         return "add_customer";
     }
 
@@ -53,12 +53,12 @@ public class CustomerController{
         customerDto.setAddress(customer.getAddress());
         customerDto.setPhone(customer.getPhone());
         customerDto.setImage(customer.getImage());
-        model.addAttribute("customer", customerDto);
+        model.addAttribute("customerDto", customerDto);
         return "edit_customer";
     }
 
     @PostMapping("/add")
-    public String add(@Valid @ModelAttribute("customer") CustomerDto customerDto, BindingResult bindingResult) throws IOException{
+    public String add(@Valid @ModelAttribute("customerDto") CustomerDto customerDto, BindingResult bindingResult) throws IOException{
         if(bindingResult.hasErrors()){
             return "add_customer";
         }
@@ -86,7 +86,7 @@ public class CustomerController{
     }
 
     @PostMapping("/edit/{id}")
-    public String update(@Valid @ModelAttribute("customer") CustomerDto customerDto, BindingResult bindingResult, @PathVariable long id) throws IOException{
+    public String update(@Valid @ModelAttribute("customerDto") CustomerDto customerDto, BindingResult bindingResult, @PathVariable long id) throws IOException{
         if(bindingResult.hasErrors()){
             return "edit_customer";
         }

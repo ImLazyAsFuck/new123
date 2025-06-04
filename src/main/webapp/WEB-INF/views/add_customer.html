@@ -5,7 +5,7 @@
         <title>Title</title>
     </head>
     <body>
-        <form th:action="@{/customers/add}" th:object="${customer}" enctype="multipart/form-data" method="post">
+        <form th:action="@{/customers/add}" th:object="${customerDto}" enctype="multipart/form-data" method="post">
             <h1>Add Customer</h1>
             <input type="text" th:field="*{firstName}" placeholder="First Name">
             <p style="color: red" th:if="${#fields.hasErrors('firstName')}" th:text="${#fields.errors('firstName')[0]}"></p>
