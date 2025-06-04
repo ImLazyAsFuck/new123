@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<form th:action="@{/customers}" method="post">
+<form th:action="@{/customers}" method="get">
     <input type="text" name="name"/>
     <button type="submit">Search</button>
 </form>
@@ -39,7 +39,7 @@
         <td th:text="${customer.address}"></td>
         <td>
             <a th:href="@{/customers/edit/{id}(id=${customer.id})}">Edit</a>
-            <a th:href="@{/customers/delete/{id}(id=${customer.id})}">Delete</a>
+            <a onclick="return confirm('Are you sure to delete this customer?')" th:href="@{/customers/delete/{id}(id=${customer.id})}">Delete</a>
         </td>
     </tr>
     </tbody>
