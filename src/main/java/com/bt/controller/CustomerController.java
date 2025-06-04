@@ -97,15 +97,13 @@ public class CustomerController{
         }else{
             customerDto.setImage(foundCustomer.getImage());
         }
-        Customer customer = new Customer();
         if(foundCustomer != null){
-            customer.setId(foundCustomer.getId());
-            customer.setFirstName(customerDto.getFirstName());
-            customer.setLastName(customerDto.getLastName());
-            customer.setAddress(customerDto.getAddress());
-            customer.setPhone(customerDto.getPhone());
-            customer.setImage(customerDto.getImage());
-            customerService.update(customer);
+            foundCustomer.setFirstName(customerDto.getFirstName());
+            foundCustomer.setLastName(customerDto.getLastName());
+            foundCustomer.setAddress(customerDto.getAddress());
+            foundCustomer.setPhone(customerDto.getPhone());
+            foundCustomer.setImage(customerDto.getImage());
+            customerService.update(foundCustomer);
         }
         return "redirect:/customers/";
     }
