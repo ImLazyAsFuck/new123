@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface CustomerRepo{
     List<Customer> findAll();
-    Customer findById(int id);
+    Customer findById(long id);
     void save(Customer customer);
     void delete(Customer customer);
     void update(Customer customer);

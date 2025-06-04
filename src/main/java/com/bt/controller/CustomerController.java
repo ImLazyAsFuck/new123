@@ -41,7 +41,7 @@ public class CustomerController{
     }
 
     @GetMapping("/edit/{id}")
-    public String edit(Model model, @PathVariable Integer id){
+    public String edit(Model model, @PathVariable long id){
         Customer customer = customerService.findById(id);
         if(customer == null){
             return "redirect:/customers/";
@@ -77,7 +77,7 @@ public class CustomerController{
     }
 
     @GetMapping("/delete/{id}")
-    public String delete(@PathVariable Integer id){
+    public String delete(@PathVariable long id){
         Customer customer = customerService.findById(id);
         if(customer != null){
             customerService.delete(customer);
@@ -86,7 +86,7 @@ public class CustomerController{
     }
 
     @PostMapping("/edit/{id}")
-    public String update(@Valid @ModelAttribute("customer") CustomerDto customerDto, BindingResult bindingResult, @PathVariable Integer id) throws IOException{
+    public String update(@Valid @ModelAttribute("customer") CustomerDto customerDto, BindingResult bindingResult, @PathVariable long id) throws IOException{
         if(bindingResult.hasErrors()){
             return "edit_customer";
         }

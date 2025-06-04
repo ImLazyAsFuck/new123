@@ -23,7 +23,7 @@ public class CustomerRepoImpl implements CustomerRepo{
     }
 
     @Override
-    public Customer findById(int id){
+    public Customer findById(long id){
         try(Session session = sessionFactory.openSession()){
             return session.get(Customer.class, id);
         }
