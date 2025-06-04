@@ -33,13 +33,13 @@
         <td th:text="${customer.firstName}"></td>
         <td th:text="${customer.lastName}"></td>
         <td>
-            <img th:src="${customer.image}" width="100" height="100"/>
+            <img th:if="${customer.image}" th:src="@{${customer.image}}" width="100" height="100" alt=""/>
         </td>
         <td th:text="${customer.phone}"></td>
         <td th:text="${customer.address}"></td>
         <td>
-            <a href="/customers/edit/${customer.id}">Edit</a>
-            <a href="/customers/delete/${customer.id}">Delete</a>
+            <a th:href="@{/customers/edit/{id}(id=${customer.id})}">Edit</a>
+            <a th:href="@{/customers/delete/{id}(id=${customer.id})}">Delete</a>
         </td>
     </tr>
     </tbody>
