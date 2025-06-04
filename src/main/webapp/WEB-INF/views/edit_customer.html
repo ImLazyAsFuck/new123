@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<form th:action="@{/customers/add}" enctype="multipart/form-data" method="post">
+    <h1>Edit Customer</h1>
+    <input type="text" name="firstName" th:value="${customer.firstName}">
+    <p style="color: red" th:if="${#fields.hasErrors('firstName')}" th:text="${#fields.errors('firstName')[0]}"></p>
+    <input type="text" name="lastName" th:value="${customer.lastName}">
+    <p style="color: red" th:if="${#fields.hasErrors('lastName')}" th:text="${#fields.errors('lastName')[0]}"></p>
+    <input type="text" name="phone" th:value="${customer.phone}">
+    <input type="text" name="address" th:value="${customer.address}">
+    <input type="file" name="file" />
+    <img th:src="${customer.image}">
+    <input type="submit" name="submit">
+    <button type="button" onclick="window.location.href='/customers'">Back</button>
+</form>
+</body>
+</html>
