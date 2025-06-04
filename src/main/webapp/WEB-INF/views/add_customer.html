@@ -1,21 +1,21 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <form th:action="@{/customers/add}" th:object="${customer}" enctype="multipart/form-data" method="post">
-        <h1>Add Customer</h1>
-        <input type="text" th:field="*{firstName}" placeholder="Customer Name">
-        <p style="color: red" th:if="${#fields.hasErrors('firstName')}" th:text="${#fields.errors('firstName')[0]}"></p>
-        <input type="text" th:field="lastName">
-        <p style="color: red" th:if="${#fields.hasErrors('lastName')}" th:text="${#fields.errors('lastName')[0]}"></p>
-        <input type="text" th:field="*{phone}">
-        <input type="text" th:field="*{address}">
-        <input type="file" th:field="*{file}" name="file" />
-        <input type="submit" name="submit">
-        <button type="button" onclick="window.location.href='/customers'">Back</button>
-    </form>
-</body>
-</html>
+    <!DOCTYPE html>
+    <html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <form th:action="@{/customers/add}" th:object="${customer}" enctype="multipart/form-data" method="post">
+            <h1>Add Customer</h1>
+            <input type="text" th:field="*{firstName}" placeholder="First Name">
+            <p style="color: red" th:if="${#fields.hasErrors('firstName')}" th:text="${#fields.errors('firstName')[0]}"></p>
+            <input type="text" th:field="*{lastName}" placeholder="Last Name">
+            <p style="color: red" th:if="${#fields.hasErrors('lastName')}" th:text="${#fields.errors('lastName')[0]}"></p>
+            <input type="text" th:field="*{phone}" placeholder="Phone">
+            <input type="text" th:field="*{address}" placeholder="Address">
+            <input type="file" th:field="*{file}" name="file" />
+            <input type="submit" name="submit">
+            <button type="button" onclick="window.location.href='/customers'">Back</button>
+        </form>
+    </body>
+    </html>

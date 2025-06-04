@@ -9,17 +9,15 @@
 </head>
 <body>
 <form th:action="@{/customers/add}" th:object="${customer}" enctype="multipart/form-data" method="post">
-    <h1>Edit Customer</h1>
+    <h1>Add Customer</h1>
     <input type="text" th:field="*{firstName}" placeholder="First Name">
     <p style="color: red" th:if="${#fields.hasErrors('firstName')}" th:text="${#fields.errors('firstName')[0]}"></p>
-
     <input type="text" th:field="*{lastName}" placeholder="Last Name">
     <p style="color: red" th:if="${#fields.hasErrors('lastName')}" th:text="${#fields.errors('lastName')[0]}"></p>
-
     <input type="text" th:field="*{phone}" placeholder="Phone">
     <input type="text" th:field="*{address}" placeholder="Address">
-    <input type="file" th:field="*{file}" />
-
+    <input type="file" th:field="*{file}" name="file" />
+    <img th:src="${customer.image}" width="100" height="100">
     <input type="submit" name="submit">
     <button type="button" onclick="window.location.href='/customers'">Back</button>
 </form>
