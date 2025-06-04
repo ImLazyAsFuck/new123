@@ -5,15 +5,15 @@
     <title>Title</title>
 </head>
 <body>
-    <form th:action="@{/customers/add}" enctype="multipart/form-data" method="post">
+    <form th:action="@{/customers/add}" th:object="${customer}" enctype="multipart/form-data" method="post">
         <h1>Add Customer</h1>
         <input type="text" th:field="*{firstName}" placeholder="Customer Name">
         <p style="color: red" th:if="${#fields.hasErrors('firstName')}" th:text="${#fields.errors('firstName')[0]}"></p>
-        <input type="text" name="lastName">
+        <input type="text" th:field="lastName">
         <p style="color: red" th:if="${#fields.hasErrors('lastName')}" th:text="${#fields.errors('lastName')[0]}"></p>
-        <input type="text" name="phone">
-        <input type="text" name="address">
-        <input type="file" name="file" />
+        <input type="text" th:field="*{phone}">
+        <input type="text" th:field="*{address}">
+        <input type="file" th:field="*{file}" name="file" />
         <input type="submit" name="submit">
         <button type="button" onclick="window.location.href='/customers'">Back</button>
     </form>
